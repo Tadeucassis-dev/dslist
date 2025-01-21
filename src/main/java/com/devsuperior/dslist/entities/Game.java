@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb-game")
+@Table(name = "tb_game")
 public class Game {
 
     @Id
@@ -13,24 +13,30 @@ public class Game {
     private Long id;
     private String title;
 
-    @Column(name = "game-year")
-    private Integer year;
+    @Column(name = "game_year")
+    private Integer game_year;
     private String genre;
-    private String platform;
+    private String platforms;
+    private Double score;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game() {
 
     }
 
-    public Game(Long id, String title, Integer year,String genre, String platform, String imgUrl, String shortDescription, String longDescription) {
+    public Game(Long id, String title, Integer game_year,String genre, Double score, String platforms, String imgUrl, String shortDescription, String longDescription) {
 
         this.id = id;
         this.title = title;
-        this.year = year;
-        this.platform = platform;
+        this.game_year = game_year;
+        this.platforms = platforms;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.genre = genre;
         this.shortDescription = shortDescription;
@@ -53,12 +59,20 @@ public class Game {
         this.title = title;
     }
 
-    public Integer getYear() {
-        return year;
+    public Double getScore() {
+        return score;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    public Integer getGame_year() {
+        return game_year;
+    }
+
+    public void setGame_year(Integer game_year) {
+        this.game_year = game_year;
     }
 
     public String getGenre() {
@@ -69,12 +83,12 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
 
     public String getImgUrl() {
